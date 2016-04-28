@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="blocking-queue-test:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/blocking_queue_test_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="blocking-queue-test/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="blocking-queue-test" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
