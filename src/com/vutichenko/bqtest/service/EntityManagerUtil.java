@@ -15,7 +15,7 @@ public class EntityManagerUtil {
     private static final EntityManagerFactory entityManagerFactory;
     static {
         try {
-            entityManagerFactory = Persistence.createEntityManagerFactory("test");
+            entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
 
         } catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);
@@ -33,7 +33,7 @@ public class EntityManagerUtil {
         try {
             manager.getTransaction().begin();
             student.setRandomValue(randomValue);
-            student = getEntityManager().merge(student);
+            student = manager.merge(student);
             manager.getTransaction().commit();
         } catch (Exception e) {
             manager.getTransaction().rollback();
@@ -45,7 +45,7 @@ public class EntityManagerUtil {
         EntityManager manager = getEntityManager();
         try {
             manager.getTransaction().begin();
-            List<SimpleEntity> list = (List<SimpleEntity>)manager.createQuery("from ENTITY").getResultList();
+            List<SimpleEntity> list = (List<SimpleEntity>) manager.createQuery("FROM SimpleEntity ").getResultList();
             manager.getTransaction().commit();
             return list;
         } catch (Exception e) {
